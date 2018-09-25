@@ -30,6 +30,11 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import capital.scalable.restdocs.AutoDocumentation;
+import capital.scalable.restdocs.SnippetRegistry;
+import capital.scalable.restdocs.jackson.JacksonResultHandlers;
+import capital.scalable.restdocs.section.SectionSnippet;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @AutoConfigureRestDocs(outputDir = "target/asciidoc/generated")
@@ -49,6 +54,15 @@ public class BaseTest {
     @Before
     public void setUp() {
 
+        SectionSnippet section = AutoDocumentation.sectionBuilder()
+                .snippetNames(SnippetRegistry.PATH_PARAMETERS,
+                        SnippetRegistry.REQUEST_PARAMETERS,
+                        SnippetRegistry.REQUEST_FIELDS,
+                        SnippetRegistry.RESPONSE_FIELDS,
+                        SnippetRegistry.HTTP_REQUEST,
+                        SnippetRegistry.HTTP_RESPONSE)
+                .skipEmpty(true)
+                .build();
         MockitoAnnotations.initMocks(this);
 
         AbstractMockMvcBuilder<?> mvcBuilder = null;
@@ -65,7 +79,14 @@ public class BaseTest {
                         .snippets()
                         .withDefaults(
                                 HttpDocumentation.httpRequest(),
-                                HttpDocumentation.httpResponse()
+                                HttpDocumentation.httpResponse(),
+                                AutoDocumentation.requestFields(),
+                                AutoDocumentation.responseFields(),
+                                AutoDocumentation.pathParameters(),
+                                AutoDocumentation.requestParameters(),
+                                AutoDocumentation.description(),
+                                AutoDocumentation.methodAndPath(),
+                                section
                         )
                 ).build();
     }

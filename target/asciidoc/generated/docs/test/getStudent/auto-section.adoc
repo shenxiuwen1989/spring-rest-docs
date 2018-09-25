@@ -1,0 +1,6 @@
+[[resources-docs-test-getStudent]]
+=== Docs / test / get Student
+
+include::auto-method-path.adoc[]
+
+include::auto-description.adoc[]
