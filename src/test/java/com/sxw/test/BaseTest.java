@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.http.HttpDocumentation;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.setup.AbstractMockMvcBuilder;
@@ -35,9 +36,9 @@ import capital.scalable.restdocs.SnippetRegistry;
 import capital.scalable.restdocs.jackson.JacksonResultHandlers;
 import capital.scalable.restdocs.section.SectionSnippet;
 
-
+@WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-@AutoConfigureRestDocs(outputDir = "target/asciidoc/generated")
+@AutoConfigureRestDocs(outputDir = "target/asciidoc/generated") //文档输出目录
 @SpringBootTest(classes = {Application.class})
 @AutoConfigureMockMvc
 public class BaseTest {
