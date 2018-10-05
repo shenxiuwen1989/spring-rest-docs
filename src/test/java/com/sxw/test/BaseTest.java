@@ -6,6 +6,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ import capital.scalable.restdocs.section.SectionSnippet;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-@AutoConfigureRestDocs(outputDir = "target/asciidoc/generated") //文档输出目录
+@AutoConfigureRestDocs(outputDir = "target/asciidoc/generated") //注解开启了生成snippets文件，并指定了存放位置
 @SpringBootTest(classes = {Application.class})
 @AutoConfigureMockMvc
 public class BaseTest {
@@ -104,5 +105,9 @@ public class BaseTest {
         MockHttpServletRequestBuilder request = buildRequest(url, json);
         mockMvc.perform(request).andDo(print()).andExpect(status().isOk()).andDo(document(docs + url));
     }
+
+    //
+    @Test
+    public void test() { }
 
 }

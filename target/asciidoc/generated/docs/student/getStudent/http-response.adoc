@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 96
+
+{"id":1,"name":"zhangsan","age":12,"sex":"男","cls":"二年级","address":"重庆市大竹林"}
+----

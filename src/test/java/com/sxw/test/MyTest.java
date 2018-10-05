@@ -16,6 +16,6 @@ public class MyTest extends BaseTest{
 
     @Test
     public void testPost() throws Exception {
-        request("/test/getStudent","docs");
+        request("/student/getStudent","docs");
     }
 }

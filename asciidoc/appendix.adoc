@@ -1,0 +1,4 @@
+== 接口
+
+
+include::{generated}/docs/student/getStudent/auto-section.adoc[]

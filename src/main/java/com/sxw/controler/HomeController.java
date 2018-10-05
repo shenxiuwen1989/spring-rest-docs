@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/student")
 public class HomeController {
 
     @RequestMapping(value = "/getStudent",method = RequestMethod.POST)

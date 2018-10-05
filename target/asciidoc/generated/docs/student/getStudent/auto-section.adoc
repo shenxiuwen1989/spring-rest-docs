@@ -1,0 +1,6 @@
+[[resources-docs-student-getStudent]]
+=== Docs / student / get Student
+
+include::auto-method-path.adoc[]
+
+include::auto-description.adoc[]
